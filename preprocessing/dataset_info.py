@@ -1,0 +1,1 @@
+dataset1_ecg_variables = ["EKG EKG", "ECG1", "ECG2"]

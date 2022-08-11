@@ -1,6 +1,6 @@
 import datetime
 from typing import Union
-from preprocessing.exceptions.preprocess_exceptions import StringTimestampFormat
+from exceptions import StringTimestampFormat
 
 
 def calculate_duration(
@@ -49,9 +49,9 @@ def calculate_duration(
             When such a string is split based on the '.' character, it leads to a list with 
             3 components, ["hh", "mm", "ss"].
             """
-            if start_timestamp.split('.') != 3:
+            if len(start_timestamp.split('.')) != 3:
                 raise StringTimestampFormat(entered_timestamp=start_timestamp)
-            elif end_timestamp.split('.') != 3:
+            elif len(end_timestamp.split('.')) != 3:
                 raise StringTimestampFormat(entered_timestamp=end_timestamp)
 
             else:
@@ -123,3 +123,13 @@ def calculate_duration(
               "Returning \"None\".")
 
     return None
+
+
+if __name__ == "__main__":
+
+    this_result = calculate_duration(
+        start_timestamp=datetime.datetime(2021, 12, 11, 1, 3, 1),
+        end_timestamp=datetime.datetime(2021, 12, 11, 5, 23, 26)
+    )
+
+    print(this_result)
