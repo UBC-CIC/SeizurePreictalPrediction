@@ -1,16 +1,15 @@
-# This is a sample Python script.
+from preprocessing.file_types.edf_preprocess import EDFFiles
+import numpy as np
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    """
+    thisobj = EDFFiles()
+    thisobj.run_pipeline(
+        edf_directory=r'D:\PacificAutism\github-code\data',
+        destination_directory=r'D:\PacificAutism\data\script_check'
+    )
+    """
+    path = r'D:\PacificAutism\data\script_check\Patient01.npy'
+    with open(path, 'rb') as f:
+        a = np.load(f, allow_pickle=True)
+        print(a)
